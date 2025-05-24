@@ -1,21 +1,18 @@
-import { StatusBar, StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View } from "react-native";
 import React from "react";
 
-export default function Explore() {
+export default function About() {
   return (
     <View style={styles.container}>
-      <Text>Explore</Text>
+      <Text>About</Text>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: "#fff",
     flex: 1,
-    padding: StatusBar.currentHeight || 20,
     justifyContent: "center",
     alignItems: "center",
-    gap: 20,
   },
 });

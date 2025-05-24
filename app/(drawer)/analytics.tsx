@@ -1,10 +1,10 @@
 import { StatusBar, StyleSheet, Text, View } from "react-native";
 import React from "react";
 
-export default function Explore() {
+export default function Analytics() {
   return (
     <View style={styles.container}>
-      <Text>Explore</Text>
+      <Text>Analytics</Text>
     </View>
   );
 }

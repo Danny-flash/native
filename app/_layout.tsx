@@ -1,29 +1,44 @@
-import { DarkTheme, DefaultTheme, ThemeProvider } from '@react-navigation/native';
-import { useFonts } from 'expo-font';
-import { Stack } from 'expo-router';
-import { StatusBar } from 'expo-status-bar';
-import 'react-native-reanimated';
-
-import { useColorScheme } from '@/hooks/useColorScheme';
+import { Stack, useRouter } from "expo-router";
+import { StatusBar } from "expo-status-bar";
+import { Alert, Pressable, Text } from "react-native";
 
 export default function RootLayout() {
-  const colorScheme = useColorScheme();
-  const [loaded] = useFonts({
-    SpaceMono: require('../assets/fonts/SpaceMono-Regular.ttf'),
-  });
-
-  if (!loaded) {
-    // Async font loading only occurs in development.
-    return null;
-  }
-
+  const router = useRouter();
   return (
-    <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-      <Stack>
-        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-        <Stack.Screen name="+not-found" />
-      </Stack>
-      <StatusBar style="auto" />
-    </ThemeProvider>
+    <>
+    <StatusBar style="light" />
+    <Stack
+      screenOptions={{
+        headerStyle: { backgroundColor: "#6a51ae" },
+        headerTintColor: "#fff",
+        headerRight: () => (
+          <Pressable onPress={() => router.push("/profile")}>
+            <Text style={{ color: "#fff" }}>Menu</Text>
+          </Pressable>
+        ),
+      }}
+    >
+      <Stack.Screen
+        name="index"
+        options={{
+          title: "Home",
+        }}
+      />
+      <Stack.Screen
+        name="(tabs)"
+        options={{
+          title: "Home",
+          headerShown: false
+        }}
+      />
+      <Stack.Screen
+        name="(drawer)"
+        options={{
+          title: "Home",
+          headerShown: false
+        }}
+      />
+    </Stack>
+    </>
   );
 }
