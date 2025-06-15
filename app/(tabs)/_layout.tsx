@@ -1,44 +1,39 @@
-import { StyleSheet, Text, View } from "react-native";
 import React from "react";
 import { Tabs } from "expo-router";
-import FontAwesome from "@expo/vector-icons/FontAwesome";
 
-export default function TabsLayout() {
+const _layout = () => {
   return (
-    <Tabs
-      screenOptions={{
-        headerTintColor: "#f8fafc",
-        headerStyle: {
-          backgroundColor: "#0f172a",
-        },
-        tabBarStyle: {
-          backgroundColor: "#0f172a",
-        },
-        tabBarActiveTintColor: "#f8fafc",
-        tabBarInactiveTintColor: '#94a3b8',
-      }}
-    >
+    <Tabs>
       <Tabs.Screen
-        name="settings"
+        name="index"
         options={{
-          tabBarIcon: ({ color }) => (
-            <FontAwesome name="user" color={color} size={24} />
-          ),
-          title: "Settings",
-          tabBarBadge: 3,
+          title: "Home",
+          headerShown: false,
         }}
       />
       <Tabs.Screen
-        name="explore"
+        name="search"
         options={{
-          tabBarIcon: ({ color }) => (
-            <FontAwesome name="search" size={24} color={color} />
-          ),
-          title: "Explore",
+          title: "Search",
+          headerShown: false,
+        }}
+      />
+      <Tabs.Screen
+        name="saved"
+        options={{
+          title: "Saved",
+          headerShown: false,
+        }}
+      />
+      <Tabs.Screen
+        name="profile"
+        options={{
+          title: "Profile",
+          headerShown: false,
         }}
       />
     </Tabs>
   );
-}
+};
 
-const styles = StyleSheet.create({});
+export default _layout;
